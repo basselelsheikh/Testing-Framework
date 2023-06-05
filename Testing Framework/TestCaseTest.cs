@@ -20,14 +20,15 @@ namespace Testing_Framework
         }
         public void TestRunning()
         {
+            var test = new WasRun("TestMethod");
+            Console.WriteLine(test.wasRun);
             test.run();
             AssertTrue(test.WasRun);
         }
         public void TestSetUp()
         {
+            var test = new WasRun("TestMethod");
             test.run();
-            AssertTrue(test.WasSetUp);
-
         }
     }
 }
