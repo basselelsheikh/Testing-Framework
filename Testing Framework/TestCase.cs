@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +24,15 @@ namespace Testing_Framework
             var result = new Result();
             result.IncrementNumberOfRuns();
             this.SetUp();
-            this.GetType().GetMethod(name).Invoke(this, null);
+            try
+            {
+                this.GetType().GetMethod(name).Invoke(this, null);
+            }
+            catch (Exception ex)
+            {
+                result.IncrementNumberOfFailedTests();
+            }
+
             this.TearDown();
             return result;
         }

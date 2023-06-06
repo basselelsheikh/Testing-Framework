@@ -14,9 +14,15 @@ namespace Testing_Framework
         {
             _numberOfRuns++;
         }
+        public void IncrementNumberOfFailedTests()
+        {
+            _numberOfFails++;
+        }
         public string GetSummary()
         {
-            return $"{_numberOfRuns} Run, 0 Failed";
+            return $"{_numberOfRuns} Run, {_numberOfFails} Failed";
         }
+
+       
     }
 }

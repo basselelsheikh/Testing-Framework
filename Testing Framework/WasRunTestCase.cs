@@ -26,6 +26,7 @@ namespace Testing_Framework
         public override void SetUp()
         {
             Log += "SetUp ";
+
         }
         public override void TearDown()
         {

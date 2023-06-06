@@ -7,12 +7,12 @@ namespace Testing_Framework
     internal class TestCaseTest : TestCase
     {
         private WasRunTestCase test;
-        
+
         public TestCaseTest(string name) : base(name)
         { }
         public override void SetUp()
         {
-            
+
         }
         public void TestTemplateMethod()
         {
@@ -32,6 +32,12 @@ namespace Testing_Framework
             var result = test.run();
             Assert.AreEqual("1 Run, 1 Failed", result.GetSummary());
         }
-
+        public void TestFailedResultFormatting()
+        {
+            var result = new Result();
+            result.IncrementNumberOfRuns();
+            result.IncrementNumberOfFailedTests();
+            Assert.AreEqual("1 Run, 1 Failed", result.GetSummary());
+        }
     }
 }
