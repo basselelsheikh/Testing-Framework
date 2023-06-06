@@ -12,13 +12,25 @@ namespace Testing_Framework
         { }
         public override void SetUp()
         {
-
+            
         }
         public void TestTemplateMethod()
         {
             test = new WasRunTestCase("TestMethod");
             test.run();
             Assert.AreEqual("SetUp TestMethod TearDown ", test.Log);
+        }
+        public void TestResult()
+        {
+            test = new WasRunTestCase("TestMethod");
+            var result = test.run();
+            Assert.AreEqual("1 Run, 0 Failed", result.GetSummary());
+        }
+        public void TestFailedResult()
+        {
+            test = new WasRunTestCase("TestBrokenMethod");
+            var result = test.run();
+            Assert.AreEqual("1 Run, 1 Failed", result.GetSummary());
         }
 
     }

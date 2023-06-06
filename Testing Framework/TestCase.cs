@@ -18,11 +18,14 @@ namespace Testing_Framework
         }
         public virtual void SetUp() { }
         public virtual void TearDown() { }
-        public void run()
+        public Result run()
         {
+            var result = new Result();
+            result.IncrementNumberOfRuns();
             this.SetUp();
             this.GetType().GetMethod(name).Invoke(this, null);
             this.TearDown();
+            return result;
         }
 
     }

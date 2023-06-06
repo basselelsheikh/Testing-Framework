@@ -19,6 +19,10 @@ namespace Testing_Framework
         {
             Log += "TestMethod ";
         }
+        public void TestBrokenMethod()
+        {
+            throw new Exception();
+        }
         public override void SetUp()
         {
             Log += "SetUp ";
