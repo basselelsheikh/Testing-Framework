@@ -17,10 +17,12 @@ namespace Testing_Framework
             this.name = name;
         }
         public virtual void SetUp() { }
+        public virtual void TearDown() { }
         public void run()
         {
             this.SetUp();
             this.GetType().GetMethod(name).Invoke(this, null);
+            this.TearDown();
         }
 
     }

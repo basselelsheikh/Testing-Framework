@@ -9,8 +9,7 @@ namespace Testing_Framework
 {
     internal class WasRunTestCase : TestCase
     {
-        public bool WasRun;
-        public bool WasSetUp;
+        public string Log ="";
        
         public WasRunTestCase(string name) : base(name)
         {
@@ -18,12 +17,15 @@ namespace Testing_Framework
 
         public void TestMethod()
         {
-            WasRun = true;
+            Log += "TestMethod ";
         }
         public override void SetUp()
         {
-            WasRun = false;
-            WasSetUp = true;
+            Log += "SetUp ";
+        }
+        public override void TearDown()
+        {
+            Log += "TearDown ";
         }
 
     }
